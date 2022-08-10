@@ -10,7 +10,7 @@ using TradingEngineServer.Core.Configuration;
 
 namespace TradingEngineServer.Core
 {
-    class TradingEngineServer : BackgroundService, ITradingEngineServer
+    sealed class TradingEngineServer : BackgroundService, ITradingEngineServer
     {
         private readonly ILogger<TradingEngineServer> _logger;
         private readonly TradingEngineServerConfiguration _tradingEngineServerConfig;
@@ -21,6 +21,9 @@ namespace TradingEngineServer.Core
             _tradingEngineServerConfig = config.Value ?? throw new ArgumentNullException(nameof(config));
 
         }
+
+        public Task Run(CancellationToken token) => ExecuteAsync(token);
+
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
             while (!stoppingToken.IsCancellationRequested)
@@ -28,6 +31,7 @@ namespace TradingEngineServer.Core
 
 
             }
+            return Task.CompletedTask;
         }
     }
 }
