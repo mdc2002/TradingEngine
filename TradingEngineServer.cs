@@ -7,9 +7,10 @@ namespace TradingEngineServer.Core
 {
     class TradingEngineServer : BackgroundService, ITradingEngineServer
     {
-        public TradingEngineServer(ILogger)
+        private readonly ILogger<TradingEngineServer> _logger;
+        public TradingEngineServer(ILogger<TradingEngineServer> logger, IOptions<>)
         {
-
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
         }
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
