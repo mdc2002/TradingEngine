@@ -12,6 +12,10 @@ using TradingEngineServer.Core;
 // Used to get rid of unmanaged resources like database connections, streams, etc.
 
 using var engine = TradingEngineServerHostBuilder.BuildTradingEngineServer();
-TradingEngineServerServiceProvider.ServiceProvider = engine.Services;
-
 // This engine is now an IHost (no longer of type TradingEngineServer)
+TradingEngineServerServiceProvider.ServiceProvider = engine.Services;
+{
+    using var scope = TradingEngineServerServiceProvider.ServiceProvider.CreateScope();
+    //creates a scope in which scopes services will exist for us
+    await engine.RunAsync().ConfigureAwait(false);
+}
