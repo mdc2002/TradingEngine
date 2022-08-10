@@ -16,14 +16,14 @@ namespace TradingEngineServer.Core
             {
                 // Start with configuration (be able to add the ability to have options in our services)
                 services.AddOptions();
-                services.Configure<TradingEngineServerConfiguration>(context.Configuration.GetSection(nameof(TradingEngineServerConfiguration)))
+                IServiceCollection serviceCollection1 = services.Configure<TradingEngineServerConfiguration>(context.Configuration.GetSection(nameof(TradingEngineServerConfiguration)));
 
                 // Add singleton objects.
-                services.AddSingleton<ITradingEngineServer, TradingEngineServer>();
+                IServiceCollection serviceCollection = services.AddSingleton<ITradingEngineServer, TradingEngineServer>();
 
                 // Add hosted service (the type that Microsoft's hosting library that we have imported here will rely on inheriting from background service
                 services.AddHostedService<TradingEngineServer>();
 
 
             }).Build();
-}
+    } }

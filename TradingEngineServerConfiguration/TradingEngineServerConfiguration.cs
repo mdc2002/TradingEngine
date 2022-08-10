@@ -8,7 +8,7 @@ namespace TradingEngineServer.Core.Configuration
 {
     class TradingEngineServerConfiguration
     {
-        public TradingEngineServerSettings TradingEngineServerSettings { get; set; }
+        public TradingEngineServerSettings? TradingEngineServerSettings { get; set; }
     }
     class TradingEngineServerSettings
     {

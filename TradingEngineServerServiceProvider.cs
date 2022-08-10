@@ -10,7 +10,7 @@ namespace TradingEngineServer.Core
     {
         // We are going to have this IServiceProvider accessible to us throughout the entire application in case we need it because its class is static 
         //and because this member variable is static
-        public static IServiceProvider ServiceProvider { get; set; }
+        public static IServiceProvider? ServiceProvider { get; set; }
             
     }
 }

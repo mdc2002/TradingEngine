@@ -30,7 +30,6 @@ namespace TradingEngineServer.Core
             while (!stoppingToken.IsCancellationRequested)
             {
 
-
             }
             _logger.LogInformation($"Stopped {nameof(TradingEngineServer)}");
             return Task.CompletedTask;
