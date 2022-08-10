@@ -1,10 +1,9 @@
-﻿namespace TradingEngineServer
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-        }
-    }
-}
+﻿
+using System;
+
+
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+using TradingEngineServer.Core;
+
